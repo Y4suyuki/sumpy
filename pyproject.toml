@@ -24,9 +24,9 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = [
-  "httpx",
-  "beautifulsoup4",
+  "fire",
   "openai",
+  "tiktoken",
 ]
 dynamic = ["version"]
 
@@ -35,10 +35,14 @@ Documentation = "https://github.com/unknown/sumpy#readme"
 Issues = "https://github.com/unknown/sumpy/issues"
 Source = "https://github.com/unknown/sumpy"
 
+[project.scripts]
+sumpy = "sumpy.cli:main"
+
 [tool.hatch.version]
 path = "sumpy/__about__.py"
 
 [tool.hatch.envs.default]
+type = "virtual"
 dependencies = [
   "pytest",
   "pytest-cov",
