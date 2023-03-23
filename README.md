@@ -1,9 +1,6 @@
 # sumpy
 
-[![PyPI - Version](https://img.shields.io/pypi/v/sumpy.svg)](https://pypi.org/project/sumpy)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/sumpy.svg)](https://pypi.org/project/sumpy)
-
------
+----
 
 **Table of Contents**
 
@@ -12,8 +9,17 @@
 
 ## Installation
 
+Please install [hatch](https://github.com/pypa/hatch)
+
 ```console
-pip install sumpy
+hatch shell
+pip install -U .
+```
+
+## Usage
+
+```
+sumpy --file sample.txt
 ```
 
 ## License
