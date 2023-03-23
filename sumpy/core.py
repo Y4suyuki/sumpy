@@ -6,24 +6,27 @@ DAVINC_MAX_TOKEN_SIZE = 2048
 
 
 class Sumpy:
-    def __init__(self, api_key: str):
+    def __init__(self, api_key: str, verbose: bool = False):
         self.__openai = openai
         self.__openai.api_key = api_key
+        self.__verbose = verbose
 
     def summarize(self, s: str) -> list[str]:
 
         sentences = split_into_sentences_by_token_size(s)
         lsentences = list(sentences)
-        print(lsentences)
-        print(f"len of sentences: {len(lsentences)}")
+        if self.__verbose:
+            print(lsentences)
+            print(f"len of sentences: {len(lsentences)}")
 
         res = [self.__summarize(_s) for _s in lsentences]
 
         return res
 
     def __summarize(self, s: str) -> str:
-        print("trying to summarize")
-        print(s)
+        if self.__verbose:
+            print("trying to summarize")
+            print(s)
         order_header = "以下の文章を要約してください\n---\n"
         end = "\n要約: \n"
         res = self.__openai.Completion.create(
